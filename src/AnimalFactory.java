@@ -16,8 +16,8 @@ public class AnimalFactory {
             return new Rooster(gender, x, y);
         } else if (shapeType.equalsIgnoreCase("LION")) {
             return new Lion(gender, x, y);
-        } else if (shapeType.equalsIgnoreCase("HUNTER")) {
-            return new Hunter(gender, x, y);
+        } else if (shapeType.equalsIgnoreCase("HUMAN")) {
+            return new Human(gender, x, y);
         }
 
         return null;

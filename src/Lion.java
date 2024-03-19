@@ -127,7 +127,7 @@ public class Lion implements IAnimal {
         return interactionRange;
     }
 
-    public void InteractionRange(int interactionRange) {
+    public void setInteractionRange(int interactionRange) {
         this.interactionRange = interactionRange;
     }
 

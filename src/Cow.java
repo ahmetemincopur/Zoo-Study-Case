@@ -114,13 +114,7 @@ public class Cow implements IAnimal {
         return interactionRange;
     }
 
-    public void InteractionRange(int interactionRange) {
+    public void setInteractionRange(int interactionRange) {
         this.interactionRange = interactionRange;
-    }
-
-    @Override
-    public String toString() {
-        return "Cow [mobilityRange=" + mobilityRange + ", interactionRange=" + interactionRange + ", species=" + species
-                + ", gender=" + gender + ", x=" + x + ", y=" + y + ", name=" + name + ", count=" + count + "]";
     }
 }

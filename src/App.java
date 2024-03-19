@@ -12,7 +12,7 @@ public class App {
         zoo.addAnimals("Rooster", 10, "male");
         zoo.addAnimals("Sheep", 15, "male");
         zoo.addAnimals("Sheep", 15, "female");
-        zoo.addAnimals("Hunter", 1, "male");
+        zoo.addAnimals("Human", 1, "male");
         zoo.addAnimals("Lion", 4, "female");
         zoo.addAnimals("Lion", 4, "male");
 

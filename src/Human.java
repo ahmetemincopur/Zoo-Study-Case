@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Wolf implements IAnimal {
-    private int mobilityRange = 3;
-    private int interactionRange = 4;
-    private String species = "Wolf";
+public class Human implements IAnimal {
+    private int mobilityRange = 1;
+    private int interactionRange = 8;
+    private String species = "Human";
     private String gender;
     private int x;
     private int y;
@@ -13,52 +13,44 @@ public class Wolf implements IAnimal {
     public static int count = 0;
     private ArrayList<String> ex = new ArrayList<>();
 
-    public Wolf(String gender, int x, int y) {
+    public Human(String gender, int x, int y) {
         this.gender = gender;
-        this.name = "wolf" + Wolf.count;
+        this.name = "Hunter" + Hunter.count;
         this.x = x;
         this.y = y;
-        Wolf.count++;
+        Hunter.count++;
     }
 
     @Override
     public void makeInteraction(List<IAnimal> animal) {
         for (int j = 0; j < animal.size(); j++) {
             IAnimal otherAnimal = animal.get(j);
-            if ((otherAnimal.getSpecies().equals("Sheep") && !Zoo.deleteList.contains(otherAnimal))
-                    ||
-                    (otherAnimal.getSpecies().equals("Chicken")
-                            && !Zoo.deleteList.contains(otherAnimal))
-                    ||
-                    (otherAnimal.getSpecies().equals("Rooster")
-                            && (!Zoo.deleteList.contains(otherAnimal)))) {
-
+            if ((otherAnimal.getSpecies().equals("Sheep") && !Zoo.deleteList.contains(otherAnimal)) ||
+                    (otherAnimal.getSpecies().equals("Cow") && !Zoo.deleteList.contains(otherAnimal)) ||
+                    (otherAnimal.getSpecies().equals("Wolf") && !Zoo.deleteList.contains(otherAnimal)) ||
+                    (otherAnimal.getSpecies().equals("Rooster") && !Zoo.deleteList.contains(otherAnimal)) ||
+                    (otherAnimal.getSpecies().equals("Lion") && !Zoo.deleteList.contains(otherAnimal)) ||
+                    (otherAnimal.getSpecies().equals("Chicken") && !Zoo.deleteList.contains(otherAnimal))) {
                 double distance = Math.sqrt(Math.pow(this.x - otherAnimal.getX(), 2) +
                         Math.pow(this.y - otherAnimal.getY(), 2));
-
-                if (distance <= 4) {
-                    System.out
-                            .println(this.name + " isimli " + this.gender + " hayvan " + otherAnimal.getName()
-                                    + " isimli " + otherAnimal.getGender() + " hayvanı avladı.");
+                if (distance <= 8) {
+                    System.out.println(this.name + " " + otherAnimal.getName() + " isimli " + otherAnimal.getGender()
+                            + " hayvanı avladı.");
                     Zoo.deleteList.add(otherAnimal);
                     break;
                 }
-            } else if ((otherAnimal.getSpecies().equals("Wolf") &&
+            } else if ((otherAnimal.getSpecies().equals("Human") &&
                     !otherAnimal.getName().equals(this.name))
-                    &&
-                    (otherAnimal.getGender().equals("female") && this.gender.equals("male"))
-                    &&
-                    (!ex.contains(otherAnimal.getName()) && !Zoo.newBornList.contains(otherAnimal)
+                    && (otherAnimal.getGender().equals("female") && this.gender.equals("male"))
+                    && (!ex.contains(otherAnimal.getName()) && !Zoo.newBornList.contains(otherAnimal)
                             && !Zoo.newBornList.contains(this))) {
-
                 double distance = Math.sqrt(Math.pow(this.x - otherAnimal.getX(), 2) +
                         Math.pow(this.y - otherAnimal.getY(), 2));
-
                 if (distance <= 3) {
                     System.out.println(
-                            this.name + " isimli " + this.gender + " hayvan " + otherAnimal.getName()
-                                    + " isimli " + otherAnimal.getGender() + " hayvan ile çiftleşti.");
-                    App.zoo.addNewBorn("Wolf", randomGender(), this.x, this.y);
+                            this.name + " isimli " + this.gender + " kişi" + otherAnimal.getName()
+                                    + " isimli " + otherAnimal.getGender() + " ile çiftleşti.");
+                    App.zoo.addNewBorn("Lion", randomGender(), this.x, this.y);
                     ex.add(otherAnimal.getName());
                     break;
                 }
@@ -116,7 +108,6 @@ public class Wolf implements IAnimal {
         this.mobilityRange = mobilityRange;
     }
 
-    @Override
     public int getX() {
         return x;
     }
@@ -125,7 +116,6 @@ public class Wolf implements IAnimal {
         this.x = x;
     }
 
-    @Override
     public int getY() {
         return y;
     }
@@ -141,4 +131,5 @@ public class Wolf implements IAnimal {
     public void setInteractionRange(int interactionRange) {
         this.interactionRange = interactionRange;
     }
+
 }
