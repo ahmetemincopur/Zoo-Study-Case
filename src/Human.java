@@ -15,10 +15,10 @@ public class Human implements IAnimal {
 
     public Human(String gender, int x, int y) {
         this.gender = gender;
-        this.name = "Hunter" + Hunter.count;
+        this.name = "Hunter" + Human.count;
         this.x = x;
         this.y = y;
-        Hunter.count++;
+        Human.count++;
     }
 
     @Override
